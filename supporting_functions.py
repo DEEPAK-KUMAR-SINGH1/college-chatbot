@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 import re
+import os
 import streamlit as st
 
 from langchain_community.document_loaders import YoutubeLoader
@@ -8,7 +9,7 @@ from langchain_mistralai import MistralAIEmbeddings
 from langchain_chroma import Chroma
 from langchain_mistralai import ChatMistralAI
 from langchain_core.prompts import ChatPromptTemplate
-load_dotenv()
+os.environ["MISTRAL_API_KEY"] = st.secrets["MISTRAL_API_KEY"]
 
 llm= ChatMistralAI(
     model="mistral-small-2506",
